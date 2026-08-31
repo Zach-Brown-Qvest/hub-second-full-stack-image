@@ -1,0 +1,18 @@
+{
+  "deploymentType": "full-stack-image",
+  "typeDeclaration": {
+    "kind": "full-stack-image/v1",
+    "entryPointPath": "src/server.mjs",
+    "ingressPort": 8080,
+    "healthRoute": "/health",
+    "integratedRoutes": [
+      { "path": "/", "methods": ["GET"] },
+      { "path": "/health", "methods": ["GET"] },
+      { "path": "/api/status", "methods": ["GET"] }
+    ]
+  },
+  "artifactBuildIntent": {
+    "kind": "oci-image/v1",
+    "dockerfilePath": "Dockerfile"
+  }
+}
